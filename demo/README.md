@@ -16,10 +16,20 @@ Steps:
 
     `gcc -fPIC -shared -o demolib.so demolib.c`
 
+
+    `"D:\mingw64\bin\gcc" -fPIC -shared -o demo\demolib.dll demo\demolib.c`
+
+
+    `"D:\mingw64\bin\gcc" -o demo\demoapp demo\demoapp.c demo\demolib.c`
+
+    `demo\demoapp.exe`
+
 2. (Re)Generate the bindings (or you can just try the bindings that were
     already generated and saved in this directory)
 
     `../run.py -o pydemolib.py -l demolib.so demolib.h`
+
+    `python ../run.py --cpp "D:\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib.dll demolib.h`
 
 3. Run the app that uses these newly generated bindings
 
