@@ -1,3 +1,5 @@
 demoapp
 demolib.o
 demolib.so
+
+pydemolib.py

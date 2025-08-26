@@ -1,8 +1,7 @@
-Small Demonstration of Ctypesgen
-================================
+# Small Demonstration of Ctypesgen
 
 This little demonstration was originally written by developer clach04 (when this
-was still residing on code.google.com).  This example shows how bindings for a
+was still residing on code.google.com). This example shows how bindings for a
 very simple c-library and associated header can be quickly generated using
 Ctypesgen and accessed by a Python program.
 
@@ -11,71 +10,67 @@ summary is given here.
 
 https://winlibs.com/
 
-
-cl /EP /I. /U__GNUC__ /D"__extension__=" /D"__const=const" /D"__asm__(x)=" /D"__asm(x)=" /D"cl /EP demolib.h
+cl /EP /I. /U**GNUC** /D"**extension**=" /D"**const=const" /D"**asm**(x)=" /D"**asm(x)=" /D"cl /EP demolib.h
 
 cl /EP demolib.h
 
+## Steps:
 
-Steps:
-----------
 1. Compile the shared c-library
 
-    `gcc -fPIC -shared -o demolib.so demolib.c`
+   `gcc -fPIC -shared -o demolib.so demolib.c`
 
+   `"D:\mingw64\bin\gcc" -fPIC -shared -o demo\demolib.dll demo\demolib.c`
 
-    `"D:\mingw64\bin\gcc" -fPIC -shared -o demo\demolib.dll demo\demolib.c`
+   `"D:\mingw64\bin\gcc" -o demo\demoapp demo\demoapp.c demo\demolib.c`
 
+   `demo\demoapp.exe`
 
-    `"D:\mingw64\bin\gcc" -o demo\demoapp demo\demoapp.c demo\demolib.c`
+   `"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"`
 
-    `demo\demoapp.exe`
+   `cl /LD demolib.c /Fe:demolib_msvc.dll`
 
+   `dumpbin /exports demolib_msvc.dll`
 
-    `cl /LD demolib.c /Fe:demolib_msvc.dll`
+   `cl demoapp.c demolib_msvc.lib /Fe:demoapp_msvc.exe`
 
-
-    `dumpbin /exports demolib_msvc.dll`
-
-    `cl demoapp.c demolib_msvc.lib /Fe:demoapp_msvc.exe`
-
-    `demoapp_msvc.exe`
-
-
+   `demoapp_msvc.exe`
 
 2. (Re)Generate the bindings (or you can just try the bindings that were
-    already generated and saved in this directory)
+   already generated and saved in this directory)
 
-    `../run.py -o pydemolib.py -l demolib.so demolib.h`
+   `../run.py -o pydemolib.py -l demolib.so demolib.h`
 
-    `python ../run.py --cpp "D:\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib_msvc.dll demolib.h`
+   `python ../run.py --cpp "D:\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib_msvc.dll demolib.h`
+
+   `python ../run.py --cpp "C:\opt\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib_msvc.dll demolib.h`
 
 3. Run the app that uses these newly generated bindings
 
-    `./demoapp.py`
+   `./demoapp.py`
 
-    The results of this execution should give
+   The results of this execution should give
 
-    ```
-    a 1
-    b 2
-    result 3
-    ```
+   ```
+   a 1
+   b 2
+   result 3
+   ```
 
 4. You can also try executing the same code completely from a c-program
 
-    - Compile test code:
+   - Compile test code:
 
-        `gcc -o demoapp demoapp.c  demolib.c demolib.h`
+     `gcc -o demoapp demoapp.c  demolib.c demolib.h`
 
-    - Execute:
+   - Execute:
 
-        `./demoapp`
+     `./demoapp`
 
-    - Observe the same results as before:
+   - Observe the same results as before:
 
-        ```
-        a 1
-        b 2
-        result 3
-        ```
+     ```
+     a 1
+     b 2
+     result 3
+     ```

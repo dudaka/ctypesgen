@@ -18,6 +18,9 @@ tests/.python-version
 .pybuild/
 .tox/
 .idea/
+
+# Ignore demo build artifact
+pydemolib.py
 core
 
 *.exe
