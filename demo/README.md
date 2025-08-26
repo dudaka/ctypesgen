@@ -41,7 +41,7 @@ Steps:
 
     `../run.py -o pydemolib.py -l demolib.so demolib.h`
 
-    `python ../run.py --cpp "D:\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib.dll demolib.h`
+    `python ../run.py --cpp "D:\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib_msvc.dll demolib.h`
 
 3. Run the app that uses these newly generated bindings
 
