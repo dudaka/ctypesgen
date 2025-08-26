@@ -128,6 +128,7 @@ def calculate_final_inclusion(data, opts):
 
     def can_include_desc(desc):
         if desc.can_include is None:
+            print(desc)
             if desc.include_rule == "no":
                 desc.can_include = False
             elif desc.include_rule == "yes" or desc.include_rule == "if_needed":
