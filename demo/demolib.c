@@ -12,6 +12,7 @@ Dumb manual build with:
 
 */
 
+#define DEMOLIB_DLL_EXPORT
 #include "demolib.h"
 
 int trivial_add(int a, int b)

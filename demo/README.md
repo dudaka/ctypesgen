@@ -24,6 +24,18 @@ Steps:
 
     `demo\demoapp.exe`
 
+
+    `cl /LD demolib.c /Fe:demolib_msvc.dll`
+
+
+    `dumpbin /exports demolib_msvc.dll`
+
+    `cl demoapp.c demolib_msvc.lib /Fe:demoapp_msvc.exe`
+
+    `demoapp_msvc.exe`
+
+
+
 2. (Re)Generate the bindings (or you can just try the bindings that were
     already generated and saved in this directory)
 
