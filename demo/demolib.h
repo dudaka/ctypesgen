@@ -13,4 +13,6 @@
     #define DEMOLIB_API
 #endif
 
+#define ABC 123
+
 DEMOLIB_API int trivial_add(int a, int b);

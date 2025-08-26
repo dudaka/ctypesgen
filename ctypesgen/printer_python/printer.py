@@ -26,6 +26,7 @@ class WrapperPrinter:
         if self.options.strip_build_path and self.options.strip_build_path[-1] != os.path.sep:
             self.options.strip_build_path += os.path.sep
 
+        print('Embed Preamble:', self.options.embed_preamble)
         if not self.options.embed_preamble and outpath:
             self._copy_preamble_loader_files(outpath)
 
@@ -54,6 +55,7 @@ class WrapperPrinter:
         }
 
         for kind, desc in data.output_order:
+            print('Processing:', kind, desc, desc.included)
             if desc.included:
                 method_table[kind](desc)
                 self.file.write("\n")
@@ -125,6 +127,7 @@ class WrapperPrinter:
             template_file = open(DEFAULTHEADER_PATH, "r")
 
         template_subs = self.template_subs()
+        # print('Template Substitutions:', template_subs)
         self.file.write(template_file.read() % template_subs)
 
         template_file.close()

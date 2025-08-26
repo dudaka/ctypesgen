@@ -23,6 +23,7 @@ def do_demo():
     print("a", a)
     print("b", b)
     print("result", result)
+    print("ABC", pydemolib.ABC)
 
 
 def main(argv=None):

@@ -24,4 +24,5 @@ int main(int argc, char **argv)
     printf("a %d\n", a);
     printf("b %d\n", b);
     printf("result %d\n", result);
+    printf("ABC %d\n", ABC);
 }

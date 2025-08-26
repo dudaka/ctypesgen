@@ -51,23 +51,70 @@ from ctypesgen.processor.operations import (
 
 def process(data, options):
     status_message("Processing description list.")
+    print(data.all)
+    print(options)
 
     find_dependencies(data, options)
+    print('After find_dependencies:')
+    print(data.all)
+    print(options)
 
     automatically_typedef_structs(data, options)
+    print('After automatically_typedef_structs:')
+    print(data.all)
+    print(options)
+
     remove_NULL(data, options)
+    print('After remove_NULL:')
+    print(data.all)
+    print(options)
+
     remove_descriptions_in_system_headers(data, options)
+    print('After remove_descriptions_in_system_headers:')
+    print(data.all)
+    print(options)
+
     filter_by_regexes_exclude(data, options)
+    print('After filter_by_regexes_exclude:')
+    print(data.all)
+    print(options)
+
     filter_by_regexes_include(data, options)
+    print('After filter_by_regexes_include:')
+    print(data.all)
+    print(options)
+
     remove_macros(data, options)
+    print('After remove_macros:')
+    print(data.all)
+    print(options)
+    
     if options.output_language.startswith("py"):
         # this function is python specific
         fix_conflicting_names(data, options)
+        print('After fix_conflicting_names:')
+        print(data.all)
+        print(options)
+
     find_source_libraries(data, options)
+    print('After find_source_libraries:')
+    print(data.all)
+    print(options)
 
     calculate_final_inclusion(data, options)
+    print('After calculate_final_inclusion:')
+    print(data.all)
+    print(options)
+
     print_errors_encountered(data, options)
+    print('After print_errors_encountered:')
+    print(data.all)
+    print(options)
+
     calculate_final_inclusion(data, options)
+    print('After calculate_final_inclusion:')
+    print(data.all)
+    print(options)
 
 
 def calculate_final_inclusion(data, opts):

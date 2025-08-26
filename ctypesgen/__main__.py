@@ -348,6 +348,7 @@ def main(givenargs=None):
 
     # Step 1: Parse
     descriptions = core_parser.parse(args.headers, args)
+    print(descriptions.all)
 
     # Step 2: Process
     processor.process(descriptions, args)

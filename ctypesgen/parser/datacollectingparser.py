@@ -69,6 +69,12 @@ class DataCollectingParser(ctypesparser.CtypesParser, CtypesTypeVisitor):
 
     def parse(self):
         fd, fname = mkstemp(suffix=".h")
+        print('self.options.other_headers')
+        print(self.options.other_headers)
+
+        print('self.headers')
+        print(self.headers)
+        
         with os.fdopen(fd, "w") as f:
             for header in self.options.other_headers:
                 f.write("#include <%s>\n" % header)

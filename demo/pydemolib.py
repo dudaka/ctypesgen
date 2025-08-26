@@ -1,7 +1,7 @@
 r"""Wrapper for demolib.h
 
 Generated with:
-../run.py -o pydemolib.py -l demolib.so demolib.h
+../run.py --cpp D:\mingw64\bin\gcc -E -o pydemolib.py -l demolib_msvc.dll demolib.h
 
 Do not modify this file.
 """
@@ -333,7 +333,6 @@ class MutableString(UserString):
 
 
 class String(MutableString, ctypes.Union):
-
     _fields_ = [("raw", ctypes.POINTER(ctypes.c_char)), ("data", ctypes.c_char_p)]
 
     def __init__(self, obj=b""):
@@ -860,18 +859,24 @@ del loaderclass
 add_library_search_dirs([])
 
 # Begin libraries
-_libs["demolib.so"] = load_library("demolib.so")
+_libs["demolib_msvc.dll"] = load_library("demolib_msvc.dll")
 
 # 1 libraries
 # End libraries
 
 # No modules
 
-# /home/olsonse/src/ctypesgen/demo/demolib.h: 6
-if _libs["demolib.so"].has("trivial_add", "cdecl"):
-    trivial_add = _libs["demolib.so"].get("trivial_add", "cdecl")
+# D:\\workspace\\ctypesgen\\demo\\demolib.h: 18
+if _libs["demolib_msvc.dll"].has("trivial_add", "cdecl"):
+    trivial_add = _libs["demolib_msvc.dll"].get("trivial_add", "cdecl")
     trivial_add.argtypes = [c_int, c_int]
     trivial_add.restype = c_int
+
+# D:\\workspace\\ctypesgen\\demo\\demolib.h: 16
+try:
+    ABC = 123
+except:
+    pass
 
 # No inserted files
 

@@ -19,3 +19,12 @@ tests/.python-version
 .tox/
 .idea/
 core
+
+*.exe
+*.dll
+*.so
+*.obj
+*.exp
+*.lib
+
+__pycache__/
