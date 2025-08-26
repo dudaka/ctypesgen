@@ -117,6 +117,7 @@ class CParser(object):
 
         self.handle_status("Preprocessing %s" % filename)
         self.preprocessor_parser.parse(filename)
+        print(self.preprocessor_parser.output)
         self.lexer.input(self.preprocessor_parser.output)
         self.handle_status("Parsing %s" % filename)
         self.parser.parse(lexer=self.lexer, debug=debug, tracking=True)

@@ -89,6 +89,10 @@ class PreprocessorParser(object):
     def parse(self, filename):
         """Parse a file and save its output"""
 
+        # with open(filename, "rb") as f:
+        #     data = f.read()
+        #     print(data)
+
         cmd = self.options.cpp
 
         # Legacy behaviour is to implicitly undefine '__GNUC__'
@@ -102,7 +106,13 @@ class PreprocessorParser(object):
             # (currently the default)
             cmd += " -U __GNUC__"
 
-        cmd += " -dD"
+        # if cmd has m/(^|[/\])cl(\.exe)?[ \t]/i in cmd:
+        if re.search(r"(^|[/\\])cl(\.exe)?[ \t]", cmd, re.I):
+            # MSVC cl.exe
+            cmd += " /nologo /EP /d1PP"
+        else:
+            # Assume gcc
+            cmd += " -dD"
 
         for undefine in self.options.cpp_undefines:
             cmd += " -U%s" % undefine
@@ -118,6 +128,8 @@ class PreprocessorParser(object):
             cmd += ' "-D%s"' % define
         cmd += ' "' + filename + '"'
 
+        # print('-------', cmd)
+
         self.cparser.handle_status(cmd)
 
         pp = subprocess.Popen(
@@ -129,8 +141,13 @@ class PreprocessorParser(object):
         )
         ppout_data, pperr_data = pp.communicate()
 
+        # print(ppout_data)
+        # print('======')
+        # print(pperr_data)
+
         try:
             ppout = ppout_data.decode("utf-8")
+            # print(ppout)
         except UnicodeError:
             if IS_MAC:
                 ppout = ppout_data.decode("utf-8", errors="replace")
@@ -141,6 +158,8 @@ class PreprocessorParser(object):
         if IS_WINDOWS:
             ppout = ppout.replace("\r\n", "\n")
             pperr = pperr.replace("\r\n", "\n")
+
+            # print(ppout)
 
         for line in pperr.split("\n"):
             if line:
@@ -159,6 +178,7 @@ class PreprocessorParser(object):
         first_token_reg = re.compile(r"^#\s*([^ ]+)($|\s)")
 
         for line in ppout.split("\n"):
+            # print(line)
             line += "\n"
             search = first_token_reg.match(line)
             hash_token = search.group(1) if search else None
@@ -176,7 +196,12 @@ class PreprocessorParser(object):
                 source_lines.append("\n")
                 define_lines.append(line)
 
+        # print("".join(define_lines))
+        # print('======')
+        # print("".join(source_lines))
+
         text = "".join(source_lines + define_lines)
+        # print(text)
 
         if self.options.save_preprocessed_headers:
             self.cparser.handle_status(
@@ -194,9 +219,12 @@ class PreprocessorParser(object):
         try:
             while True:
                 token = self.lexer.token()
+                # print(token)
                 if token is not None:
                     self.output.append(token)
                 else:
                     break
+
+            # print(self.output)
         except LexError as e:
             self.cparser.handle_error("{}; {}".format(e, e.text.partition("\n")[0]), filename, 0)

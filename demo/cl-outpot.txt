@@ -1,0 +1,5 @@
+self.options.other_headers
+[]
+self.headers
+['demolib.h']
+[LexToken(PP_DEFINE,'#define',12,23), LexToken(PP_DEFINE_NAME,'DEMOLIB_API',12,31), LexToken(IDENTIFIER,'__declspec',12,43), LexToken(LPAREN,'(',12,53), LexToken(IDENTIFIER,'dllimport',12,54), LexToken(RPAREN,')',12,63), LexToken(PP_END_DEFINE,'\n',12,64), LexToken(IDENTIFIER,'__declspec',20,76), LexToken(LPAREN,'(',20,86), LexToken(IDENTIFIER,'dllimport',20,87), LexToken(RPAREN,')',20,96), LexToken(IDENTIFIER,'int',20,98), LexToken(IDENTIFIER,'trivial_add',20,102), LexToken(LPAREN,'(',20,113), LexToken(IDENTIFIER,'int',20,114), LexToken(IDENTIFIER,'a',20,118), LexToken(COMMA,',',20,119), LexToken(IDENTIFIER,'int',20,121), LexToken(IDENTIFIER,'b',20,125), LexToken(RPAREN,')',20,126), LexToken(SEMI,';',20,127), LexToken(PP_DEFINE,'#define',40,148), LexToken(PP_DEFINE_NAME,'ABC',40,156), LexToken(I_CONST_DEC,'123',40,160), LexToken(PP_END_DEFINE,'\n',40,163)]

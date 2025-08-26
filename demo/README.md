@@ -45,6 +45,14 @@ cl /EP demolib.h
 
    `python ../run.py --cpp "C:\opt\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib_msvc.dll demolib.h`
 
+   `python ../run.py --cpp "cl /E"  -o pydemolib.py -l demolib_msvc.dll demolib.h`
+
+   `cl /nologo /EP /d1PP demolib.h`
+
+   `cl /nologo /EP /d1PP /Iinclude include\grass\datetime.h`
+
+   `C:\opt\mingw64\bin\gcc -E -dD -Iinclude include\grass\datetime.h`
+
 3. Run the app that uses these newly generated bindings
 
    `./demoapp.py`
