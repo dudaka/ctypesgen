@@ -12,6 +12,11 @@ summary is given here.
 https://winlibs.com/
 
 
+cl /EP /I. /U__GNUC__ /D"__extension__=" /D"__const=const" /D"__asm__(x)=" /D"__asm(x)=" /D"cl /EP demolib.h
+
+cl /EP demolib.h
+
+
 Steps:
 ----------
 1. Compile the shared c-library
