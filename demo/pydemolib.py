@@ -1,7 +1,7 @@
 r"""Wrapper for demolib.h
 
 Generated with:
-../run.py --cpp C:\opt\mingw64\bin\gcc -E --debug-level 1 -o pydemolib.py -l demolib_msvc.dll demolib.h
+../run.py -o pydemolib.py -l demolib.so demolib.h
 
 Do not modify this file.
 """
@@ -859,20 +859,20 @@ del loaderclass
 add_library_search_dirs([])
 
 # Begin libraries
-_libs["demolib_msvc.dll"] = load_library("demolib_msvc.dll")
+_libs["demolib.so"] = load_library("demolib.so")
 
 # 1 libraries
 # End libraries
 
 # No modules
 
-# C:\\opt\\ctypesgen\\demo\\demolib.h: 20
-if _libs["demolib_msvc.dll"].has("trivial_add", "cdecl"):
-    trivial_add = _libs["demolib_msvc.dll"].get("trivial_add", "cdecl")
+# /Users/hodung/Workspace/phd/ctypesgen/demo/demolib.h: 20
+if _libs["demolib.so"].has("trivial_add", "cdecl"):
+    trivial_add = _libs["demolib.so"].get("trivial_add", "cdecl")
     trivial_add.argtypes = [c_int, c_int]
     trivial_add.restype = c_int
 
-# C:\\opt\\ctypesgen\\demo\\demolib.h: 16
+# /Users/hodung/Workspace/phd/ctypesgen/demo/demolib.h: 16
 try:
     ABC = 123
 except:

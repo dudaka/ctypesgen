@@ -147,7 +147,7 @@ class PreprocessorParser(object):
 
         try:
             ppout = ppout_data.decode("utf-8")
-            # print(ppout)
+            print(ppout)
         except UnicodeError:
             if IS_MAC:
                 ppout = ppout_data.decode("utf-8", errors="replace")

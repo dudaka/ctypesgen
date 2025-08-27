@@ -51,37 +51,37 @@ from ctypesgen.processor.operations import (
 
 def process(data, options):
     status_message("Processing description list.")
-    # print(data.all)
+    print(len(data.all))
     # print(options)
 
     find_dependencies(data, options)
-    # print('After find_dependencies:')
-    # print(data.all)
+    print('After find_dependencies:')
+    print(len(data.all))
     # print(options)
 
     automatically_typedef_structs(data, options)
-    # print('After automatically_typedef_structs:')
-    # print(data.all)
+    print('After automatically_typedef_structs:')
+    print(len(data.all))
     # print(options)
 
     remove_NULL(data, options)
-    # print('After remove_NULL:')
-    # print(data.all)
+    print('After remove_NULL:')
+    print(len(data.all))
     # print(options)
 
     remove_descriptions_in_system_headers(data, options)
-    # print('After remove_descriptions_in_system_headers:')
-    # print(data.all)
+    print('After remove_descriptions_in_system_headers:')
+    print(len(data.all))
     # print(options)
 
     filter_by_regexes_exclude(data, options)
-    # print('After filter_by_regexes_exclude:')
-    # print(data.all)
+    print('After filter_by_regexes_exclude:')
+    print(len(data.all))
     # print(options)
 
     filter_by_regexes_include(data, options)
-    # print('After filter_by_regexes_include:')
-    # print(data.all)
+    print('After filter_by_regexes_include:')
+    print(len(data.all))
     # print(options)
 
     remove_macros(data, options)
@@ -92,18 +92,18 @@ def process(data, options):
     if options.output_language.startswith("py"):
         # this function is python specific
         fix_conflicting_names(data, options)
-        # print('After fix_conflicting_names:')
-        # print(data.all)
+        print('After fix_conflicting_names:')
+        print(len(data.all))
         # print(options)
 
     find_source_libraries(data, options)
-    # print('After find_source_libraries:')
-    # print(data.all)
+    print('After find_source_libraries:')
+    print(len(data.all))
     # print(options)
 
     calculate_final_inclusion(data, options)
-    # print('After calculate_final_inclusion:')
-    # print(data.all)
+    print('After calculate_final_inclusion:')
+    print(len(data.all))
     # print(options)
 
     print_errors_encountered(data, options)
@@ -128,7 +128,6 @@ def calculate_final_inclusion(data, opts):
 
     def can_include_desc(desc):
         if desc.can_include is None:
-            print(desc)
             if desc.include_rule == "no":
                 desc.can_include = False
             elif desc.include_rule == "yes" or desc.include_rule == "if_needed":
@@ -136,6 +135,8 @@ def calculate_final_inclusion(data, opts):
                 for req in desc.requirements:
                     if not can_include_desc(req):
                         desc.can_include = False
+
+        print(desc, desc.include_rule, desc.can_include, desc.requirements)
         return desc.can_include
 
     def do_include_desc(desc):

@@ -6,12 +6,31 @@ descriptions.
 from ctypesgen.descriptions import MacroDescription, UndefDescription
 from ctypesgen.ctypedescs import visit_type_and_collect_info
 
+def print_names(struct_names, enum_names, typedef_names, ident_names):
+    print("Struct Names:")
+    for name in struct_names:
+        print(f" - {name}")
+    print("Enum Names:")
+    for name in enum_names:
+        print(f" - {name}")
+    print("Typedef Names:")
+    for name in typedef_names:
+        print(f" - {name}")
+    print("Identifier Names:")
+    for name in ident_names:
+        print(f" - {name}")
+
+    print("--- End Names ---")
+
+
 
 def find_dependencies(data, opts):
     """Visit each description in `data` and figure out which other descriptions
     it depends on, putting the results in desc.requirements. Also find errors in
     ctypedecls or expressions attached to the description and transfer them to the
     description."""
+
+    print('--> find_dependencies')
 
     struct_names = {}
     enum_names = {}
@@ -29,6 +48,8 @@ def find_dependencies(data, opts):
             struct_names[(variety, tag)] = None
         if name.startswith("enum_"):
             enum_names[name] = None
+
+    print_names(struct_names, enum_names, typedef_names, ident_names)
 
     def depend(desc, nametable, name):
         """Try to add `name` as a requirement for `desc`, looking `name` up in
@@ -62,6 +83,8 @@ def find_dependencies(data, opts):
         """Find all the descriptions that `desc` depends on and add them as
         dependencies for `desc`. Also collect error messages regarding `desc` and
         convert unlocateable descriptions into error messages."""
+
+        print(f'Finding dependencies for {desc.casual_name()}')
 
         if kind == "constant":
             roots = [desc.value]
@@ -162,3 +185,21 @@ def find_dependencies(data, opts):
     for kind, desc in data.output_order:
         if kind == "macro":
             find_dependencies_for(desc, kind)
+
+
+    with open("dependencies.txt", "w") as f:
+
+        for kind, desc in data.output_order:
+
+            if len(desc.requirements) == 0 and len(desc.dependents) == 0:
+                continue
+            
+            f.write(f"--> {desc.casual_name()} depends on:\n")
+            for dep in desc.dependents:
+                f.write(f" - {dep.casual_name()}\n")
+
+            f.write(f"{desc.casual_name()} requires:\n")
+            for req in desc.requirements:
+                f.write(f" - {req.casual_name()}\n")
+
+            f.write("--- End ---\n\n")
