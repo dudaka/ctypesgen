@@ -348,13 +348,13 @@ def main(givenargs=None):
 
     # Step 1: Parse
     descriptions = core_parser.parse(args.headers, args)
-    # print(descriptions.all)
+    print(descriptions.all)
 
     # Step 2: Process
-    processor.process(descriptions, args)
+    # processor.process(descriptions, args)
 
     # Step 3: Print
-    printer(args.output, args, descriptions)
+    # printer(args.output, args, descriptions)
 
     # msgs.status_message("Wrapping complete.")
 
