@@ -48,40 +48,44 @@ from ctypesgen.processor.operations import (
     remove_NULL,
 )
 
+def print_can_include(data):
+    for desc in data.all:
+        
+        print(f"{desc.casual_name()}: {desc.include_rule}")
 
 def process(data, options):
     status_message("Processing description list.")
-    print(len(data.all))
+    print_can_include(data)
     # print(options)
 
     find_dependencies(data, options)
     print('After find_dependencies:')
-    print(len(data.all))
+    # print_can_include(data)
     # print(options)
 
     automatically_typedef_structs(data, options)
     print('After automatically_typedef_structs:')
-    print(len(data.all))
+    # print_can_include(data)
     # print(options)
 
     remove_NULL(data, options)
     print('After remove_NULL:')
-    print(len(data.all))
+    # print_can_include(data)
     # print(options)
 
     remove_descriptions_in_system_headers(data, options)
     print('After remove_descriptions_in_system_headers:')
-    print(len(data.all))
+    # print_can_include(data)
     # print(options)
 
     filter_by_regexes_exclude(data, options)
     print('After filter_by_regexes_exclude:')
-    print(len(data.all))
+    # print_can_include(data)
     # print(options)
 
     filter_by_regexes_include(data, options)
     print('After filter_by_regexes_include:')
-    print(len(data.all))
+    # print_can_include(data)
     # print(options)
 
     remove_macros(data, options)
@@ -93,17 +97,17 @@ def process(data, options):
         # this function is python specific
         fix_conflicting_names(data, options)
         print('After fix_conflicting_names:')
-        print(len(data.all))
+        # print_can_include(data)
         # print(options)
 
     find_source_libraries(data, options)
     print('After find_source_libraries:')
-    print(len(data.all))
+    # print_can_include(data)
     # print(options)
 
     calculate_final_inclusion(data, options)
     print('After calculate_final_inclusion:')
-    print(len(data.all))
+    # print_can_include(data)
     # print(options)
 
     print_errors_encountered(data, options)

@@ -84,7 +84,7 @@ def find_dependencies(data, opts):
         dependencies for `desc`. Also collect error messages regarding `desc` and
         convert unlocateable descriptions into error messages."""
 
-        print(f'Finding dependencies for {desc.casual_name()}')
+        # print(f'Finding dependencies for {desc.casual_name()}')
 
         if kind == "constant":
             roots = [desc.value]
@@ -187,19 +187,19 @@ def find_dependencies(data, opts):
             find_dependencies_for(desc, kind)
 
 
-    with open("dependencies.txt", "w") as f:
+    # with open("dependencies.txt", "w") as f:
 
-        for kind, desc in data.output_order:
+    #     for kind, desc in data.output_order:
 
-            if len(desc.requirements) == 0 and len(desc.dependents) == 0:
-                continue
+    #         if len(desc.requirements) == 0 and len(desc.dependents) == 0:
+    #             continue
             
-            f.write(f"--> {desc.casual_name()} depends on:\n")
-            for dep in desc.dependents:
-                f.write(f" - {dep.casual_name()}\n")
+    #         f.write(f"--> {desc.casual_name()} depends on:\n")
+    #         for dep in desc.dependents:
+    #             f.write(f" - {dep.casual_name()}\n")
 
-            f.write(f"{desc.casual_name()} requires:\n")
-            for req in desc.requirements:
-                f.write(f" - {req.casual_name()}\n")
+    #         f.write(f"{desc.casual_name()} requires:\n")
+    #         for req in desc.requirements:
+    #             f.write(f" - {req.casual_name()}\n")
 
-            f.write("--- End ---\n\n")
+    #         f.write("--- End ---\n\n")
