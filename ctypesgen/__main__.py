@@ -354,7 +354,7 @@ def main(givenargs=None):
     processor.process(descriptions, args)
 
     # Step 3: Print
-    # printer(args.output, args, descriptions)
+    printer(args.output, args, descriptions)
 
     # msgs.status_message("Wrapping complete.")
 

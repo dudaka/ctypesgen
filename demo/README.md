@@ -14,6 +14,72 @@ cl /EP /I. /U**GNUC** /D"**extension**=" /D"**const=const" /D"**asm**(x)=" /D"**
 
 cl /EP demolib.h
 
+## Steps to build a shared libary on Linux/Mac
+
+```
+cd demo
+
+gcc -fPIC -shared -o demolib.so demolib.c
+
+python ../run.py -o pydemolib.py -l demolib.so demolib.h
+
+python demoapp.py
+
+```
+
+## Steps to build a shared library on Windows with MinGW
+
+```bash
+cd demo
+
+C:\mingw64\bin\gcc -shared -o demolib.dll demolib.c
+gcc -shared -o demolib.dll demolib.c
+
+# power shell
+objdump -p demolib.dll | Select-String -Pattern "trivial_add" -Context 2
+
+
+python -c "import ctypes; dll = ctypes.CDLL('./demolib.dll'); print('DLL loaded successfully'); result = dll.trivial_add(5, 3); print(f'trivial_add(5, 3) = {result}')"
+
+python ..\run.py -o pydemolib.py -l demolib.dll demolib.h
+
+python demoapp.py
+```
+
+## Steps to build a shared library on Windows with MSVC
+
+```bash
+
+"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+
+cd demo
+
+cl /LD demolib.c /Fe:demolib_msvc.dll
+
+dumpbin /exports demolib_msvc.dll
+
+
+cl demoapp.c demolib_msvc.lib /Fe:demoapp_msvc.exe
+demoapp_msvc.exe
+
+python ../run.py --cpp "C:\opt\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib_msvc.dll demolib.h
+
+```
+
+## Other commands
+
+```bash
+
+gcc -E -dD demolib.h
+
+cl /nologo /EP /d1PP demolib.h
+
+cl /nologo /EP /d1PP /Iinclude include/grass/datetime.h
+
+C:\opt\mingw64\bin\gcc -E -dD -Iinclude include/grass/datetime.h
+
+```
+
 ## Steps:
 
 1. Compile the shared c-library

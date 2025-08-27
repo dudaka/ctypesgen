@@ -15,6 +15,4 @@
 
 #define ABC 123
 
-// #define __declspec(x) __attribute__((x))
-
 DEMOLIB_API int trivial_add(int a, int b);
