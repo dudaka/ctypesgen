@@ -49,7 +49,7 @@ def find_dependencies(data, opts):
         if name.startswith("enum_"):
             enum_names[name] = None
 
-    print_names(struct_names, enum_names, typedef_names, ident_names)
+    # print_names(struct_names, enum_names, typedef_names, ident_names)
 
     def depend(desc, nametable, name):
         """Try to add `name` as a requirement for `desc`, looking `name` up in
@@ -186,20 +186,3 @@ def find_dependencies(data, opts):
         if kind == "macro":
             find_dependencies_for(desc, kind)
 
-
-    # with open("dependencies.txt", "w") as f:
-
-    #     for kind, desc in data.output_order:
-
-    #         if len(desc.requirements) == 0 and len(desc.dependents) == 0:
-    #             continue
-            
-    #         f.write(f"--> {desc.casual_name()} depends on:\n")
-    #         for dep in desc.dependents:
-    #             f.write(f" - {dep.casual_name()}\n")
-
-    #         f.write(f"{desc.casual_name()} requires:\n")
-    #         for req in desc.requirements:
-    #             f.write(f" - {req.casual_name()}\n")
-
-    #         f.write("--- End ---\n\n")

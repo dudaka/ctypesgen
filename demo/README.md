@@ -111,6 +111,8 @@ C:\opt\mingw64\bin\gcc -E -dD -Iinclude include/grass/datetime.h
 
    `python ../run.py --cpp "C:\opt\mingw64\bin\gcc -E"  -o pydemolib.py -l demolib_msvc.dll demolib.h`
 
+   `python ../run.py --cpp "C:\opt\mingw64\bin\gcc -E" --save-preprocessed-headers preprocessed-header.txt  -o pydemolib.py -l demolib_msvc.dll demolib.h`
+
    `python ../run.py --cpp "cl /E"  -o pydemolib.py -l demolib_msvc.dll demolib.h`
 
    `cl /nologo /EP /d1PP demolib.h`
@@ -148,3 +150,9 @@ C:\opt\mingw64\bin\gcc -E -dD -Iinclude include/grass/datetime.h
      b 2
      result 3
      ```
+
+5. Other commands
+
+```bash
+
+```

@@ -51,6 +51,7 @@ def remove_descriptions_in_system_headers(data, opts):
     known_headers = [os.path.basename(x) for x in opts.headers]
 
     for description in data.all:
+        print(description, description.src, os.path.basename(description.src[0]), known_headers)
         if description.src is not None:
             if description.src[0] == "<command line>":
                 description.include_rule = "if_needed"
@@ -58,6 +59,7 @@ def remove_descriptions_in_system_headers(data, opts):
                 if not opts.builtin_symbols:
                     description.include_rule = "if_needed"
             elif os.path.basename(description.src[0]) not in known_headers:
+                print(opts.all_headers)
                 if not opts.all_headers:
                     # If something else requires this, include it even though
                     # it is in a system header file.

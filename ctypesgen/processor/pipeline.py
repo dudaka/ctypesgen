@@ -55,11 +55,27 @@ def print_can_include(data):
 
 def process(data, options):
     status_message("Processing description list.")
-    print_can_include(data)
+    # print_can_include(data)
     # print(options)
 
     find_dependencies(data, options)
     print('After find_dependencies:')
+    with open("1.dependencies.txt", "w") as f:
+
+        for kind, desc in data.output_order:
+
+            if len(desc.requirements) == 0 and len(desc.dependents) == 0:
+                continue
+            
+            f.write(f"--> {desc.casual_name()} depends on:\n")
+            for dep in desc.dependents:
+                f.write(f" - {dep.casual_name()}\n")
+
+            f.write(f"{desc.casual_name()} requires:\n")
+            for req in desc.requirements:
+                f.write(f" - {req.casual_name()}\n")
+
+            f.write("--- End ---\n\n")
     # print_can_include(data)
     # print(options)
 
@@ -70,26 +86,41 @@ def process(data, options):
 
     remove_NULL(data, options)
     print('After remove_NULL:')
+    with open('3.debug-after-remove_NULL.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print_can_include(data)
     # print(options)
 
     remove_descriptions_in_system_headers(data, options)
     print('After remove_descriptions_in_system_headers:')
+    with open('4.debug-after-remove_descriptions_in_system_headers.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print_can_include(data)
     # print(options)
 
     filter_by_regexes_exclude(data, options)
     print('After filter_by_regexes_exclude:')
+    with open('5.debug-after-filter_by_regexes_exclude.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print_can_include(data)
     # print(options)
 
     filter_by_regexes_include(data, options)
     print('After filter_by_regexes_include:')
+    with open('6.debug-after-filter_by_regexes_include.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print_can_include(data)
     # print(options)
 
     remove_macros(data, options)
-    # print('After remove_macros:')
+    print('After remove_macros:')
+    with open('7.debug-after-remove_macros.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print(data.all)
     # print(options)
     
@@ -97,26 +128,41 @@ def process(data, options):
         # this function is python specific
         fix_conflicting_names(data, options)
         print('After fix_conflicting_names:')
+        with open('8.debug-after-fix_conflicting_names.txt', 'w') as f:
+            for desc in data.all:
+                f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
         # print_can_include(data)
         # print(options)
 
     find_source_libraries(data, options)
     print('After find_source_libraries:')
+    with open('9.debug-after-find_source_libraries.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print_can_include(data)
     # print(options)
 
     calculate_final_inclusion(data, options)
     print('After calculate_final_inclusion:')
+    with open('10.debug-after-calculate_final_inclusion.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print_can_include(data)
     # print(options)
 
     print_errors_encountered(data, options)
-    # print('After print_errors_encountered:')
+    print('After print_errors_encountered:')
+    with open('11.debug-after-print_errors_encountered.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print(data.all)
     # print(options)
 
     calculate_final_inclusion(data, options)
-    # print('After calculate_final_inclusion:')
+    print('After calculate_final_inclusion:')
+    with open('12.debug-after-calculate_final_inclusion.txt', 'w') as f:
+        for desc in data.all:
+            f.write(f"{desc.casual_name()}: {desc.include_rule}\n")
     # print(data.all)
     # print(options)
 
@@ -140,7 +186,7 @@ def calculate_final_inclusion(data, opts):
                     if not can_include_desc(req):
                         desc.can_include = False
 
-        print(desc, desc.include_rule, desc.can_include, desc.requirements)
+        # print(desc, desc.include_rule, desc.can_include, desc.requirements)
         return desc.can_include
 
     def do_include_desc(desc):

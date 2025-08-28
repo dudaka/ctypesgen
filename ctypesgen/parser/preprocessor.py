@@ -109,7 +109,7 @@ class PreprocessorParser(object):
         # if cmd has m/(^|[/\])cl(\.exe)?[ \t]/i in cmd:
         if re.search(r"(^|[/\\])cl(\.exe)?[ \t]", cmd, re.I):
             # MSVC cl.exe
-            cmd += " /nologo /EP /d1PP"
+            cmd += " /nologo /E /d1PP"
         else:
             # Assume gcc
             cmd += " -dD"
@@ -147,7 +147,7 @@ class PreprocessorParser(object):
 
         try:
             ppout = ppout_data.decode("utf-8")
-            print(ppout)
+            # print(ppout)
         except UnicodeError:
             if IS_MAC:
                 ppout = ppout_data.decode("utf-8", errors="replace")
@@ -201,7 +201,6 @@ class PreprocessorParser(object):
         # print("".join(source_lines))
 
         text = "".join(source_lines + define_lines)
-        # print(text)
 
         if self.options.save_preprocessed_headers:
             self.cparser.handle_status(

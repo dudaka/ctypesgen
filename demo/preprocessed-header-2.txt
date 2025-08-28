@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+
+    
+
+
+        #define DEMOLIB_API __declspec(dllimport)
+    
+
+
+
+
+
+
+
+
+__attribute__((dllimport)) int trivial_add(int a, int b);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#define __declspec(x) __attribute__((x))
+
+#define ABC 123
+
+
+
+

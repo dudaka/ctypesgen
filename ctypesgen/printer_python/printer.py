@@ -55,7 +55,7 @@ class WrapperPrinter:
         }
 
         for kind, desc in data.output_order:
-            print('Processing:', kind, desc, desc.included)
+            # print('Processing:', kind, desc, desc.included)
             if desc.included:
                 method_table[kind](desc)
                 self.file.write("\n")

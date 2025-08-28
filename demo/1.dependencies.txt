@@ -1,0 +1,48 @@
+--> Macro "__declspec" depends on:
+ - Macro "DEMOLIB_API"
+Macro "__declspec" requires:
+--- End ---
+
+--> Macro "__GNUC__" depends on:
+ - Undef "__GNUC__"
+Macro "__GNUC__" requires:
+ - Undef "__GNUC__"
+--- End ---
+
+--> Macro "__ORDER_LITTLE_ENDIAN__" depends on:
+ - Macro "__BYTE_ORDER__"
+ - Macro "__FLOAT_WORD_ORDER__"
+Macro "__ORDER_LITTLE_ENDIAN__" requires:
+--- End ---
+
+--> Macro "__BYTE_ORDER__" depends on:
+Macro "__BYTE_ORDER__" requires:
+ - Macro "__ORDER_LITTLE_ENDIAN__"
+--- End ---
+
+--> Macro "__FLOAT_WORD_ORDER__" depends on:
+Macro "__FLOAT_WORD_ORDER__" requires:
+ - Macro "__ORDER_LITTLE_ENDIAN__"
+--- End ---
+
+--> Macro "__SIG_ATOMIC_MAX__" depends on:
+ - Macro "__SIG_ATOMIC_MIN__"
+Macro "__SIG_ATOMIC_MAX__" requires:
+--- End ---
+
+--> Macro "__SIG_ATOMIC_MIN__" depends on:
+Macro "__SIG_ATOMIC_MIN__" requires:
+ - Macro "__SIG_ATOMIC_MAX__"
+--- End ---
+
+--> Undef "__GNUC__" depends on:
+ - Macro "__GNUC__"
+Undef "__GNUC__" requires:
+ - Macro "__GNUC__"
+--- End ---
+
+--> Macro "DEMOLIB_API" depends on:
+Macro "DEMOLIB_API" requires:
+ - Macro "__declspec"
+--- End ---
+

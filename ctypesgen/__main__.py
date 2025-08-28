@@ -349,14 +349,28 @@ def main(givenargs=None):
     # Step 1: Parse
     descriptions = core_parser.parse(args.headers, args)
     # print(descriptions.all)
+    # with open("descriptions.txt", "w") as f:
+    #     for desc in descriptions.all:
+    #         f.write(f"{desc.casual_name()}\n")
+    with open("descriptions.txt", "w") as f:
+        for kind, desc in descriptions.output_order:
+            if kind == "macro":
+                f.write(f"{kind}: {desc.casual_name()}\n")
+                f.write(f"    Params: {desc.params}\n")
+                f.write(f"    Expr: {desc.expr}\n")
+            elif kind == "constant":
+                f.write(f"{kind}: {desc.casual_name()}\n")
+                f.write(f"    Value: {desc.value}\n")
+            else:
+                f.write(f"{kind}: {desc.casual_name()}\n")
 
     # Step 2: Process
     processor.process(descriptions, args)
 
     # Step 3: Print
-    # printer(args.output, args, descriptions)
+    printer(args.output, args, descriptions)
 
-    # msgs.status_message("Wrapping complete.")
+    msgs.status_message("Wrapping complete.")
 
     # Correct what may be a common mistake
     if descriptions.all == []:
