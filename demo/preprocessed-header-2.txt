@@ -1,3 +1,7 @@
+#line 1 "C:\\Users\\htdun\\AppData\\Local\\Temp\\tmpyf3vepdb.h"
+#line 1 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+
+
 
 
 
@@ -7,10 +11,199 @@
 
 
     
+
+
+
+    #line 15 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+
+
+#line 18 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+typedef struct DateTime {
+    int mode; 
+    int from, to;
+    int fracsec; 
+    int year, month, day;
+    int hour, minute;
+    double second;
+    int positive;
+    int tz; 
+} DateTime;
+
+
+
+
+__declspec(dllimport) int trivial_add(int a, int b);
+
+
+#line 1 "include\\grass/defs/datetime.h"
+
+
+
+
+
+    
+
+
+
+    #line 10 "include\\grass/defs/datetime.h"
+
+
+#line 13 "include\\grass/defs/datetime.h"
+
+
+__declspec(dllimport) int datetime_is_between(int x, int a, int b);
+
+
+__declspec(dllimport) int datetime_change_from_to(DateTime *dt, int from, int to, int round);
+
+
+__declspec(dllimport) void datetime_copy(DateTime *src, const DateTime *dst);
+
+
+__declspec(dllimport) int datetime_difference(const DateTime *a, const DateTime *b, DateTime *result);
+
+
+__declspec(dllimport) int datetime_error(int code, char *msg);
+__declspec(dllimport) int datetime_error_code(void);
+__declspec(dllimport) char *datetime_error_msg(void);
+__declspec(dllimport) void datetime_clear_error(void);
+
+
+__declspec(dllimport) int datetime_format(const DateTime *dt, char *buf);
+
+
+__declspec(dllimport) int datetime_increment(DateTime *src, DateTime *incr);
+
+
+__declspec(dllimport) int datetime_is_valid_increment(const DateTime *src, const DateTime *incr);
+__declspec(dllimport) int datetime_check_increment(const DateTime *src, const DateTime *incr);
+
+
+__declspec(dllimport) int datetime_get_increment_type(const DateTime *dt, int *mode, int *from,
+                                int *to, int *fracsec);
+__declspec(dllimport) int datetime_set_increment_type(const DateTime *src, DateTime *incr);
+
+
+__declspec(dllimport) int datetime_get_local_timezone(int *minutes);
+__declspec(dllimport) void datetime_get_local_time(DateTime *dt);
+
+
+__declspec(dllimport) int datetime_days_in_month(int year, int month, int ad);
+__declspec(dllimport) int datetime_is_leap_year(int year, int ad);
+__declspec(dllimport) int datetime_days_in_year(int year, int ad);
+
+
+__declspec(dllimport) int datetime_is_same(const DateTime *src, const DateTime *dst);
+
+
+__declspec(dllimport) int datetime_scan(DateTime *dt, const char *buf);
+
+
+__declspec(dllimport) int datetime_is_positive(const DateTime *dt);
+__declspec(dllimport) int datetime_is_negative(const DateTime *dt);
+__declspec(dllimport) void datetime_set_positive(DateTime *dt);
+__declspec(dllimport) void datetime_set_negative(DateTime *dt);
+__declspec(dllimport) void datetime_invert_sign(DateTime *dt);
+
+
+__declspec(dllimport) int datetime_set_type(DateTime *dt, int mode, int from, int to, int fracsec);
+__declspec(dllimport) int datetime_get_type(const DateTime *dt, int *mode, int *from, int *to,
+                      int *fracsec);
+__declspec(dllimport) int datetime_is_valid_type(const DateTime *dt);
+__declspec(dllimport) int datetime_check_type(const DateTime *dt);
+__declspec(dllimport) int datetime_in_interval_year_month(int x);
+__declspec(dllimport) int datetime_in_interval_day_second(int x);
+__declspec(dllimport) int datetime_is_absolute(const DateTime *dt);
+__declspec(dllimport) int datetime_is_relative(const DateTime *dt);
+
+
+__declspec(dllimport) int datetime_check_timezone(const DateTime *dt, int minutes);
+__declspec(dllimport) int datetime_get_timezone(const DateTime *dt, int *minutes);
+__declspec(dllimport) int datetime_set_timezone(DateTime *dt, int minutes);
+__declspec(dllimport) int datetime_unset_timezone(DateTime *dt);
+__declspec(dllimport) int datetime_is_valid_timezone(int minutes);
+
+
+__declspec(dllimport) int datetime_change_timezone(DateTime *dt, int minutes);
+__declspec(dllimport) int datetime_change_to_utc(DateTime *dt);
+__declspec(dllimport) void datetime_decompose_timezone(int tz, int *hours, int *minutes);
+
+
+__declspec(dllimport) int datetime_check_year(const DateTime *dt, int year);
+__declspec(dllimport) int datetime_check_month(const DateTime *dt, int month);
+__declspec(dllimport) int datetime_check_day(const DateTime *dt, int day);
+__declspec(dllimport) int datetime_check_hour(const DateTime *dt, int hour);
+__declspec(dllimport) int datetime_check_minute(const DateTime *dt, int minute);
+__declspec(dllimport) int datetime_check_second(const DateTime *dt, double second);
+__declspec(dllimport) int datetime_check_fracsec(const DateTime *dt, int fracsec);
+__declspec(dllimport) int datetime_get_year(const DateTime *dt, int *year);
+__declspec(dllimport) int datetime_set_year(DateTime *dt, int year);
+__declspec(dllimport) int datetime_get_month(const DateTime *dt, int *month);
+__declspec(dllimport) int datetime_set_month(DateTime *dt, int month);
+__declspec(dllimport) int datetime_get_day(const DateTime *dt, int *day);
+__declspec(dllimport) int datetime_set_day(DateTime *dt, int day);
+__declspec(dllimport) int datetime_get_hour(const DateTime *dt, int *hour);
+__declspec(dllimport) int datetime_set_hour(DateTime *dt, int hour);
+__declspec(dllimport) int datetime_get_minute(const DateTime *dt, int *minute);
+__declspec(dllimport) int datetime_set_minute(DateTime *dt, int minute);
+__declspec(dllimport) int datetime_get_second(const DateTime *dt, double *second);
+__declspec(dllimport) int datetime_set_second(DateTime *dt, double second);
+__declspec(dllimport) int datetime_get_fracsec(const DateTime *dt, int *fracsec);
+__declspec(dllimport) int datetime_set_fracsec(DateTime *dt, int fracsec);
+
+#line 116 "include\\grass/defs/datetime.h"
+#line 50 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+
+#line 52 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+#line 2 "C:\\Users\\htdun\\AppData\\Local\\Temp\\tmpyf3vepdb.h"
+
+#line 1 "C:\\Users\\htdun\\AppData\\Local\\Temp\\tmpyf3vepdb.h"
+#line 1 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+
+
+
+
+
+
+#define GRASS_DATETIME_H
+
+
+
+
 
 
         #define DEMOLIB_API __declspec(dllimport)
-    
+    #line 15 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+
+
+#line 18 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+
+#define DATETIME_ABSOLUTE 1
+#define DATETIME_RELATIVE 2
+
+
+
+
+#define DATETIME_YEAR     101
+#define DATETIME_MONTH    102
+#define DATETIME_DAY      103
+#define DATETIME_HOUR     104
+#define DATETIME_MINUTE   105
+#define DATETIME_SECOND   106
 
 
 
@@ -19,30 +212,135 @@
 
 
 
-__attribute__((dllimport)) int trivial_add(int a, int b);
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#define __declspec(x) __attribute__((x))
 
 #define ABC 123
 
 
 
+
+#line 1 "include\\grass/defs/datetime.h"
+
+#define GRASS_DATETIMEDEFS_H
+
+
+
+
+
+
+        #define GRASS_DATETIME_API __declspec(dllimport)
+    #line 10 "include\\grass/defs/datetime.h"
+
+
+#line 13 "include\\grass/defs/datetime.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 116 "include\\grass/defs/datetime.h"
+#line 50 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+
+#line 52 "D:\\workspace\\ctypesgen\\demo\\demolib.h"
+#line 2 "C:\\Users\\htdun\\AppData\\Local\\Temp\\tmpyf3vepdb.h"
 

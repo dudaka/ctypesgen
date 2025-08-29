@@ -175,7 +175,7 @@ class PreprocessorParser(object):
         source_lines = []
         define_lines = []
 
-        first_token_reg = re.compile(r"^#\s*([^ ]+)($|\s)")
+        first_token_reg = re.compile(r"^\s*#\s*([^ ]+)($|\s)")
 
         for line in ppout.split("\n"):
             # print(line)
@@ -187,7 +187,7 @@ class PreprocessorParser(object):
                 source_lines.append(line)
                 define_lines.append("\n")
 
-            elif hash_token.isdigit():
+            elif hash_token.isdigit() or hash_token == "line":
                 # Line number information has to go with both groups
                 source_lines.append(line)
                 define_lines.append(line)
@@ -218,7 +218,7 @@ class PreprocessorParser(object):
         try:
             while True:
                 token = self.lexer.token()
-                # print(token)
+                # print(token)  # Debug output
                 if token is not None:
                     self.output.append(token)
                 else:
