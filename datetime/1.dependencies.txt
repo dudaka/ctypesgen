@@ -1,0 +1,367 @@
+--> Struct "DateTime" depends on:
+ - Typedef "DateTime"
+ - Struct "DateTime"
+Struct "DateTime" requires:
+ - Struct "DateTime"
+--- End ---
+
+--> Struct "DateTime" depends on:
+ - Typedef "DateTime"
+ - Struct "DateTime"
+Struct "DateTime" requires:
+ - Struct "DateTime"
+--- End ---
+
+--> Typedef "DateTime" depends on:
+ - Function "datetime_get_timezone"
+ - Function "datetime_format"
+ - Function "datetime_copy"
+ - Function "datetime_check_minute"
+ - Function "datetime_set_negative"
+ - Function "datetime_get_minute"
+ - Function "datetime_set_timezone"
+ - Function "datetime_get_increment_type"
+ - Function "datetime_check_second"
+ - Function "datetime_set_type"
+ - Function "datetime_set_minute"
+ - Function "datetime_unset_timezone"
+ - Function "datetime_check_fracsec"
+ - Function "datetime_get_type"
+ - Function "datetime_get_second"
+ - Function "datetime_change_from_to"
+ - Function "datetime_get_local_time"
+ - Function "datetime_get_year"
+ - Function "datetime_is_valid_type"
+ - Function "datetime_set_second"
+ - Function "datetime_change_timezone"
+ - Function "datetime_set_year"
+ - Function "datetime_check_type"
+ - Function "datetime_get_fracsec"
+ - Function "datetime_change_to_utc"
+ - Function "datetime_get_month"
+ - Function "datetime_increment"
+ - Function "datetime_set_fracsec"
+ - Function "datetime_set_increment_type"
+ - Function "datetime_difference"
+ - Function "datetime_invert_sign"
+ - Function "datetime_set_month"
+ - Function "datetime_check_year"
+ - Function "datetime_get_day"
+ - Function "datetime_is_absolute"
+ - Function "datetime_check_increment"
+ - Function "datetime_check_month"
+ - Function "datetime_set_hour"
+ - Function "datetime_is_same"
+ - Function "datetime_is_valid_increment"
+ - Function "datetime_set_day"
+ - Function "datetime_is_positive"
+ - Function "datetime_is_relative"
+ - Function "datetime_check_day"
+ - Function "datetime_scan"
+ - Function "datetime_get_hour"
+ - Function "datetime_is_negative"
+ - Function "datetime_check_timezone"
+ - Function "datetime_check_hour"
+ - Function "datetime_set_positive"
+Typedef "DateTime" requires:
+ - Struct "DateTime"
+--- End ---
+
+--> Function "datetime_change_from_to" depends on:
+Function "datetime_change_from_to" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_copy" depends on:
+Function "datetime_copy" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_difference" depends on:
+Function "datetime_difference" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_format" depends on:
+Function "datetime_format" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_increment" depends on:
+Function "datetime_increment" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_is_valid_increment" depends on:
+Function "datetime_is_valid_increment" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_increment" depends on:
+Function "datetime_check_increment" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_increment_type" depends on:
+Function "datetime_get_increment_type" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_increment_type" depends on:
+Function "datetime_set_increment_type" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_local_time" depends on:
+Function "datetime_get_local_time" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_is_same" depends on:
+Function "datetime_is_same" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_scan" depends on:
+Function "datetime_scan" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_is_positive" depends on:
+Function "datetime_is_positive" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_is_negative" depends on:
+Function "datetime_is_negative" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_positive" depends on:
+Function "datetime_set_positive" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_negative" depends on:
+Function "datetime_set_negative" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_invert_sign" depends on:
+Function "datetime_invert_sign" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_type" depends on:
+Function "datetime_set_type" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_type" depends on:
+Function "datetime_get_type" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_is_valid_type" depends on:
+Function "datetime_is_valid_type" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_type" depends on:
+Function "datetime_check_type" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_is_absolute" depends on:
+Function "datetime_is_absolute" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_is_relative" depends on:
+Function "datetime_is_relative" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_timezone" depends on:
+Function "datetime_check_timezone" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_timezone" depends on:
+Function "datetime_get_timezone" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_timezone" depends on:
+Function "datetime_set_timezone" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_unset_timezone" depends on:
+Function "datetime_unset_timezone" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_change_timezone" depends on:
+Function "datetime_change_timezone" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_change_to_utc" depends on:
+Function "datetime_change_to_utc" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_year" depends on:
+Function "datetime_check_year" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_month" depends on:
+Function "datetime_check_month" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_day" depends on:
+Function "datetime_check_day" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_hour" depends on:
+Function "datetime_check_hour" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_minute" depends on:
+Function "datetime_check_minute" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_second" depends on:
+Function "datetime_check_second" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_check_fracsec" depends on:
+Function "datetime_check_fracsec" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_year" depends on:
+Function "datetime_get_year" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_year" depends on:
+Function "datetime_set_year" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_month" depends on:
+Function "datetime_get_month" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_month" depends on:
+Function "datetime_set_month" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_day" depends on:
+Function "datetime_get_day" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_day" depends on:
+Function "datetime_set_day" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_hour" depends on:
+Function "datetime_get_hour" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_hour" depends on:
+Function "datetime_set_hour" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_minute" depends on:
+Function "datetime_get_minute" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_minute" depends on:
+Function "datetime_set_minute" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_second" depends on:
+Function "datetime_get_second" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_second" depends on:
+Function "datetime_set_second" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_get_fracsec" depends on:
+Function "datetime_get_fracsec" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Function "datetime_set_fracsec" depends on:
+Function "datetime_set_fracsec" requires:
+ - Typedef "DateTime"
+--- End ---
+
+--> Macro "__declspec" depends on:
+ - Macro "GRASS_DATETIME_API"
+Macro "__declspec" requires:
+--- End ---
+
+--> Macro "__GNUC__" depends on:
+ - Undef "__GNUC__"
+Macro "__GNUC__" requires:
+ - Undef "__GNUC__"
+--- End ---
+
+--> Macro "__ORDER_LITTLE_ENDIAN__" depends on:
+ - Macro "__BYTE_ORDER__"
+ - Macro "__FLOAT_WORD_ORDER__"
+Macro "__ORDER_LITTLE_ENDIAN__" requires:
+--- End ---
+
+--> Macro "__BYTE_ORDER__" depends on:
+Macro "__BYTE_ORDER__" requires:
+ - Macro "__ORDER_LITTLE_ENDIAN__"
+--- End ---
+
+--> Macro "__FLOAT_WORD_ORDER__" depends on:
+Macro "__FLOAT_WORD_ORDER__" requires:
+ - Macro "__ORDER_LITTLE_ENDIAN__"
+--- End ---
+
+--> Macro "__SIG_ATOMIC_MAX__" depends on:
+ - Macro "__SIG_ATOMIC_MIN__"
+Macro "__SIG_ATOMIC_MAX__" requires:
+--- End ---
+
+--> Macro "__SIG_ATOMIC_MIN__" depends on:
+Macro "__SIG_ATOMIC_MIN__" requires:
+ - Macro "__SIG_ATOMIC_MAX__"
+--- End ---
+
+--> Undef "__GNUC__" depends on:
+ - Macro "__GNUC__"
+Undef "__GNUC__" requires:
+ - Macro "__GNUC__"
+--- End ---
+
+--> Macro "GRASS_DATETIME_API" depends on:
+Macro "GRASS_DATETIME_API" requires:
+ - Macro "__declspec"
+--- End ---
+
